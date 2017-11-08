@@ -1,15 +1,14 @@
 ---
 layout: page
-title: About
+title: About 0xb10c
 permalink: /about/
 ---
 
-Some information about you!
+## 0xb10c
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+Working on [mempool.observer](https://mempool.observer) in my freetime.
 
 ### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+- over email: [0xb10c&gma/il.com](mailto:0xb10c&gma/il.com) (yes. on purpose)
+- over [keybase.io/b10c](https://keybase.io/b10c)
+- over [twitter.com/0xB10C](https://twitter.com/0xB10C)
