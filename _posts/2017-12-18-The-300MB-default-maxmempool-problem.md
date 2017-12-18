@@ -8,7 +8,7 @@ I recently came across an interesting problem which is not the usual "my transac
 
 In the last few weeks the mempool has again reached all time highs. Periods where 100000 transactions are waiting to be confirmed were not unusual.
 
-As an anti DoS feature Bitcoin Core nodes limit the system memory storing unconfirmed transactions to 300MB by default. (300MB RAM equals roughly 150MB of actual raw transaction data)
+As an anti-DoS feature Bitcoin Core nodes limit the system memory storing unconfirmed transactions to 300MB by default. (300MB RAM equals roughly 150MB of actual raw transaction data)
 This default value can be changed with the _maxmempool_ option.
 Once the Core software reaches 300MB of used system memory it starts dropping low-feerate transactions from the mempool and sets an _mempoolminfee_.
 Transactions with lower fees than the _mempoolminfee_-threshold are rejected.
@@ -64,12 +64,14 @@ A user checking [bitaps.com](https://bitaps.com) sees the transaction, a checkin
 
 ![chained mempool transactions]({{ site.baseurl }}/images/2017-12-18/chained-mempool-tx.png)
 
-The real issue appears when the original sender is not aware of this and has a peer with a larger-than-default mempool. He unknowingly continues to chain transactions to a unconfirmed parent transaction that the vast majority of the network rejects.
+The real issue appears when the original sender is not aware of this and has a peer with a larger-than-default mempool. He unknowingly continues to chain transactions to a unconfirmed parent transaction that the vast majority of the network rejects. The incomming transaction simply spends an output that is unknown to the node.
 
 # A Solution
 
-The Solution might simply be:
+A Solution might simply be:
 
 > **Pay more fees if you want to make sure your transactions don't get dropped.**
 
 And maybe consider doing some sort of checking if you create long chains of unconfirmed low-fee transactions.
+
+To temporarily fix this one could rebroadcast all dropped transactions in the correct order hoping that they don't get dropped again.
