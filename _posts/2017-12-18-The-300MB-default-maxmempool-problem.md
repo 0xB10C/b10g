@@ -14,8 +14,7 @@ Once the Core software reaches 300MB of used system memory it starts dropping lo
 Transactions with lower fees than the _mempoolminfee_-threshold are rejected.
 
 ![chained mempool transactions]({{ site.baseurl }}/images/2017-12-18/transactions-dropping-from-mempool.png)
-
-###### Transactions dropping from mempool - [https://mempool.observer](https://mempool.observer/#size-7d).
+Transactions dropping from mempool - [https://mempool.observer](https://mempool.observer/#size-7d)
 
 
 
@@ -29,7 +28,7 @@ The Problem with an increased _maxmempool_ is, that the mempool differs vastly f
 Some explorers still keep a unconfirmed transaction others have already dropped.
 This is irritating for unknowing users.
 
-I came a cross a particular form of this problem when a friend asked me why he can see a certain low-fee transaction on bitaps.com but not on blockchain.info.
+I came a cross a particular form of this problem when a friend asked me why he can see a certain low-fee transaction on [bitaps.com](https://bitaps.com) but not on [blockchain.info](https://blockchain.info).
 
 
 My local node with the default 300MB _maxmempool_ responded with an error on calling the _getrawtransaction_ RPC.
@@ -41,27 +40,27 @@ error message:
 No such mempool transaction.
 ``
 
-Using the bitaps.com API to query the raw transaction worked fine.
+Using the [bitaps.com](https://bitaps.com) API to query the raw transaction worked fine.
 I tried rebroadcasting the raw transaction with _sendrawtransaction_.
 This failed.
 
-``
+```shell
 $ bitcoin-cli sendrawtransaction <rawtx>
 error code: -25
 error message:
 Missing inputs
-``
+```
 
 Looking at the missing input I saw that it references a unconfirmed change output from an transaction with equally low fees.
-However I again wasn't able to find the parent transaction in my local mempool or in blockchain.info's mempool. Only bitaps.com had it. And this transaction again referenced an unconfirmed output with low fees as an input.
+However I again wasn't able to find the parent transaction in my local mempool or in [blockchain.info](https://blockchain.info)'s mempool. Only [bitaps.com](https://bitaps.com) had it. And this transaction again referenced an unconfirmed output with low fees as an input.
 
 With the context of the _maxmempool_ limit this started to make sense.
 
 # My guess on what happened
 
-My guess on what happened is, that bitaps.com has an higher _maxmempool_-limit than e.g. blockchain.info and therefore does not drop the transactions.
+My guess on what happened is, that [bitaps.com](https://bitaps.com) has an higher _maxmempool_-limit than e.g. [blockchain.info](https://blockchain.info) and therefore does not drop the transactions.
 
-A user checking bitaps.com sees the transaction, a checking blockchain.info doesn't.
+A user checking [bitaps.com](https://bitaps.com) sees the transaction, a checking [blockchain.info](https://blockchain.info) doesn't.
 
 ![chained mempool transactions]({{ site.baseurl }}/images/2017-12-18/chained-mempool-tx.png)
 
