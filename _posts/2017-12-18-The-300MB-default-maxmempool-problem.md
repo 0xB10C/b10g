@@ -35,8 +35,11 @@ My local node with the default 300MB _maxmempool_ responded with an error on cal
 
 ``
 $ bitcoin-cli getrawtransaction <txid>
+
 error code: -5
+
 error message:
+
 No such mempool transaction.
 ``
 
@@ -44,12 +47,15 @@ Using the [bitaps.com](https://bitaps.com) API to query the raw transaction work
 I tried rebroadcasting the raw transaction with _sendrawtransaction_.
 This failed.
 
-```shell
+``
 $ bitcoin-cli sendrawtransaction <rawtx>
+
 error code: -25
+
 error message:
+
 Missing inputs
-```
+``
 
 Looking at the missing input I saw that it references a unconfirmed change output from an transaction with equally low fees.
 However I again wasn't able to find the parent transaction in my local mempool or in [blockchain.info](https://blockchain.info)'s mempool. Only [bitaps.com](https://bitaps.com) had it. And this transaction again referenced an unconfirmed output with low fees as an input.
