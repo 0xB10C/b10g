@@ -2,6 +2,7 @@
 layout: post
 title: The 300MB default maxmempool Problem
 date: 2017-12-18 16:16:16 +0100
+image: /images/2017-12-18/transactions-dropping-from-mempool.png
 ---
 
 Unconfirmed transaction are quite a hassle for bitcoin users.
