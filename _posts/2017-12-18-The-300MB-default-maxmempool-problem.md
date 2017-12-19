@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The 300MB-default-maxmempool-Problem
+title: The 300MB default maxmempool Problem
 date: 2017-12-18 16:16:16 +0100
 ---
 
@@ -12,9 +12,21 @@ In the last weeks of 2017 the number of unconfirmed transactions has again reach
 Periods with over 100k transactions in my mempool where not unusal.
 Bitcoin Core limits the system memory allocated for storing unconfirmed transactions to 300MB by default.
 This serves as an anti-DoS feature.
-Fully used 300MB of RAM equal about 150MB of actual raw transaction data.
+Fully used 300MB of RAM equal about 110MB of actual raw transaction data.
 This default value [can be changed](https://en.bitcoin.it/wiki/Running_Bitcoin) with the `-maxmempool <n>` option where `n` is the amount of megabytes allocated to store unconfirmed transactions.
 {: .text-justify}
+
+{% highlight sh %}
+$ bitcoin-cli getmempoolinfo
+{
+  "size": 123803,               # amount of tx
+  "bytes": 107840125,           # raw tx bytes
+  "usage": 298526272,           # tx in ram bytes
+  "maxmempool": 300000000,      # maxmempool in bytes
+  "mempoolminfee": 0.00016486   # min tx-fee to get accepted
+}
+{% endhighlight %}
+
 
 Once 300MB of system memory are reached, Bitcoin  Core starts dropping low-feerate transactions from the mempool for high-feerate transactions.
 Additionally a _mempoolminfee_-threshold is set to prevent new low fee transactions from entering the mempool.
@@ -41,7 +53,7 @@ I came a cross a particular form of this problem, when a friend asked me, why he
 My local node, with a default 300MB _maxmempool_, responded with an error on calling the _getrawtransaction_ RPC with the txid.
 {: .text-justify}
 
-{% highlight terminal %}
+{% highlight sh %}
 $ bitcoin-cli getrawtransaction <txid>
 error code: -5
 error message:
@@ -53,7 +65,7 @@ I tried rebroadcasting the raw transaction with _sendrawtransaction_.
 This failed.
 {: .text-justify}
 
-{% highlight terminal %}
+{% highlight sh %}
 $ bitcoin-cli sendrawtransaction <rawtx>
 error code: -25
 error message:
