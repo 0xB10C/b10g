@@ -6,32 +6,27 @@
     {% if page.excerpt %}
     <meta name="description" content="{{ page.excerpt| strip_html }}" />
     <meta property="og:description" content="{{ page.excerpt| strip_html }}" />
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html | xml_escape | truncate: 200 }}">
     {% else %}
     <meta name="description" content="{{ site.description }}">
     <meta property="og:description" content="{{ site.description }}" />
+    <meta name="twitter:description" content="{{ site.description }}">
     {% endif %}
+
     <meta name="author" content="{{ site.name }}" />
-
-    {% if page.title %}
-    <meta property="og:title" content="{{ page.title }}" />
-    {% endif %}
-
-
-    <!-- Twitter cards -->
     <meta name="twitter:site"    content="@0xb10c">
     <meta name="twitter:creator" content="@0xb10c">
 
     {% if page.title %}
-      <meta name="twitter:title" content="{{ page.title }}">
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta name="twitter:title" content="{{ page.title }}">
     {% else %}
-      <meta name="twitter:title" content="{{ site.title }}">
+    <meta name="twitter:title" content="{{ site.title }}">
     {% endif %}
 
     {% if page.url %}
-      <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
     {% endif %}
-
-    <meta name="twitter:description" content="{{ page.content | strip_html | xml_escape | truncate: 200 }}">
 
     {% if page.image %}
     <meta name="twitter:card"  content="summary_large_image">
