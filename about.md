@@ -5,14 +5,7 @@ permalink: /about/
 ---
 
 
-Bitcoin enthusiast.
-
-Full-Stack.
-### Projects:
-* [mempool.observer](https://mempool.observer) - [github.com/0xB10C/memo](https://github.com/0xB10C/memo)
-
-### Contributions:
-* [nopara73's HiddenWallet](https://github.com/nopara73/HiddenWallet)
+Bitcoin, Full Stack and I apparently build Bitcoin tools now  ¯\\_(ツ)_/¯
 
 
 ### Contact
