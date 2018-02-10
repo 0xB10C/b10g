@@ -106,3 +106,9 @@ A Solution might simply be:
 And maybe consider doing some sort of checking if you create long chains of unconfirmed low-fee transactions.
 To temporarily fix this one could rebroadcast all dropped transactions in the correct order hoping that they don't get dropped again.
 {: .text-justify}
+
+## Addendum 2018/02/10:
+As David Harding [points out](https://twitter.com/hrdng/status/955492510998069249) the sender could use [BIP125 ReplaceByFee](https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki) to update a unconfirmed transaction with new outputs.
+{: .text-justify}
+
+{% twitter https://twitter.com/hrdng/status/955492510998069249 %}
