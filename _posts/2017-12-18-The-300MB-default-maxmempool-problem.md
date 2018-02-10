@@ -111,4 +111,6 @@ To temporarily fix this one could rebroadcast all dropped transactions in the co
 As David Harding [points out](https://twitter.com/hrdng/status/955492510998069249) the sender could use [BIP125 ReplaceByFee](https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki) to update a unconfirmed transaction with new outputs.
 {: .text-justify}
 
-{% twitter https://twitter.com/hrdng/status/955492510998069249 %}
+> An alternative solution for the original sender is to use BIP125 RBF to update his first unconfirmed transaction with new outputs rather than creating additional new transactions. This is more efficient and so requires less overall fee, and it avoids the problem you identified.
+
+ -- David A. Harding on 22. Jan. 2018
