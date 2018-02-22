@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The 300MB default maxmempool Problem – b10c – bitcoin enthusiast from germany</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Unconfirmed transaction are quite a hassle for bitcoin users.
+I recently came across an interesting problem which is not the usual “my transaction is stuck” problem.
+
+" />
+    <meta property="og:description" content="Unconfirmed transaction are quite a hassle for bitcoin users.
+I recently came across an interesting problem which is not the usual “my transaction is stuck” problem.
+
+" />
+    <meta name="twitter:description" content="Unconfirmed transaction are quite a hassle for bitcoin users.
+I recently came across an interesting problem which is not the usual “my transaction is stuck” problem.
+
+">
+    
+
+    <meta name="author" content="b10c" />
+    <meta name="twitter:site"    content="@0xb10c">
+    <meta name="twitter:creator" content="@0xb10c">
+
+    
+    <meta property="og:title" content="The 300MB default maxmempool Problem" />
+    <meta name="twitter:title" content="The 300MB default maxmempool Problem">
+    
+
+    
+    <meta name="twitter:url" content="http://localhost:4000/The-300MB-default-maxmempool-problem/">
+    
+
+    
+    <meta name="twitter:card"  content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/images/2017-12-18/transactions-dropping-from-mempool.png">
+    
+
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="b10c - bitcoin enthusiast from germany" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://avatars3.githubusercontent.com/u/19157360?s=460&v=4" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">b10c</a></h1>
+            <p class="site-description">bitcoin enthusiast from germany</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/projects">Projects</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>The 300MB default maxmempool Problem</h1>
+
+  <div class="entry">
+    <p class="text-justify">Unconfirmed transaction are quite a hassle for bitcoin users.
+I recently came across an interesting problem which is not the usual “my transaction is stuck” problem.</p>
+
+<p class="text-justify">In the last weeks of 2017 the number of unconfirmed transactions has again reached all time highs.
+Periods with over 100k transactions in my mempool where not unusal.
+Bitcoin Core limits the system memory allocated for storing unconfirmed transactions to 300MB by default.
+This serves as an anti-DoS feature.
+Fully used 300MB of RAM equal about 110MB of actual raw transaction data.
+This default value <a href="https://en.bitcoin.it/wiki/Running_Bitcoin">can be changed</a> with the <code class="highlighter-rouge">-maxmempool &lt;n&gt;</code> option where <code class="highlighter-rouge">n</code> is the amount of megabytes allocated to store unconfirmed transactions.</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>bitcoin-cli getmempoolinfo
+<span class="o">{</span>
+  <span class="s2">"size"</span>: 123803,               <span class="c"># amount of tx</span>
+  <span class="s2">"bytes"</span>: 107840125,           <span class="c"># raw tx bytes</span>
+  <span class="s2">"usage"</span>: 298526272,           <span class="c"># tx in ram bytes</span>
+  <span class="s2">"maxmempool"</span>: 300000000,      <span class="c"># maxmempool in bytes</span>
+  <span class="s2">"mempoolminfee"</span>: 0.00016486   <span class="c"># min tx-fee to get accepted</span>
+<span class="o">}</span></code></pre></figure>
+
+<p class="text-justify">Once 300MB of system memory are reached, Bitcoin  Core starts dropping low-feerate transactions from the mempool for high-feerate transactions.
+Additionally a <em>mempoolminfee</em>-threshold is set to prevent new low fee transactions from entering the mempool.</p>
+
+<p style="text-align: center; margin-bottom:40px;"><img src="/images/2017-12-18/transactions-dropping-from-mempool.png" alt="chained mempool transactions" />
+Transactions dropping from mempool - <a href="https://mempool.observer/#size-7d">https://mempool.observer</a></p>
+
+<p class="text-justify">A node operator can increase or decrease the <em>maxmempool</em> option to better fit their system.
+I assume that for example some blockexplorers have increased their <em>maxmempool</em>.
+I know that Jochen Hoenicke for example has an node running with a <a href="https://www.reddit.com/r/Bitcoin/comments/7i6rnu/why_is_no_one_talking_about_the_178000/dqx5osf/"><em>maxmempool</em> of 2GB</a>.</p>
+
+<h1 id="the-problem">The Problem</h1>
+<p class="text-justify">Small differences in the mempool are common.
+However with an increased <em>maxmempool</em> a nodes mempool can differ vastly from a majority of other nodes on the network.
+These nodes, especially when they power a blockexplorer, still many keep unconfirmed transactions the majority of the network has already dropped.
+This can be irritating for users.</p>
+
+<p class="text-justify">I came a cross a particular form of this problem, when a friend asked me, why he can see a certain low-fee transaction on <a href="https://bitaps.com">bitaps.com</a>, but not on <a href="https://blockchain.info">blockchain.info</a>.
+My local node, with a default 300MB <em>maxmempool</em>, responded with an error on calling the <em>getrawtransaction</em> RPC with the txid.</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>bitcoin-cli getrawtransaction &lt;txid&gt;
+error code: <span class="nt">-5</span>
+error message:
+No such mempool transaction.</code></pre></figure>
+
+<p class="text-justify">However using the <a href="https://bitaps.com">bitaps.com</a> API to query the raw transaction worked fine.
+I tried rebroadcasting the raw transaction with <em>sendrawtransaction</em>.
+This failed.</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>bitcoin-cli sendrawtransaction &lt;rawtx&gt;
+error code: <span class="nt">-25</span>
+error message:
+Missing inputs</code></pre></figure>
+
+<p class="text-justify">Looking at the missing input I noticed that it references a unconfirmed change output from an transaction with equally low fees.
+However I again wasn’t able to find the parent transaction for the input in my local mempool or on <a href="https://blockchain.info">blockchain.info</a>.
+Only <a href="https://bitaps.com">bitaps.com</a> had it.
+And this transaction again referenced an unconfirmed low-fee output as an input.</p>
+
+<p>With the context of the <em>maxmempool</em> limit this started to make sense.</p>
+
+<h1 id="my-guess-on-what-happened">My guess on what happened</h1>
+
+<p class="text-justify">My guess on what happened is, that <a href="https://bitaps.com">bitaps.com</a> has an higher <em>maxmempool</em>-limit than e.g. <a href="https://blockchain.info">blockchain.info</a> and therefore does not drop the transactions.
+A user checking <a href="https://bitaps.com">bitaps.com</a> sees the transaction, a user checking <a href="https://blockchain.info">blockchain.info</a> doesn’t.</p>
+
+<p><img src="/images/2017-12-18/chained-mempool-tx.png" alt="chained mempool transactions" /></p>
+
+<p class="text-justify">The real issue appears when the original sender is not aware of this and has a peer with a larger-than-default mempool.
+He unknowingly continues to chain transactions to a unconfirmed parent transaction that the vast majority of the network rejects.
+The broadcasted transaction spends an output which references a dropped transaction and therefore is invalid.</p>
+
+<h1 id="a-solution">A Solution</h1>
+
+<p>A Solution might simply be:</p>
+
+<p style="text-align: center; margin-bottom:10px;"><strong>Pay more fees if you want to make sure your transactions don’t get dropped.</strong></p>
+
+<p class="text-justify">And maybe consider doing some sort of checking if you create long chains of unconfirmed low-fee transactions.
+To temporarily fix this one could rebroadcast all dropped transactions in the correct order hoping that they don’t get dropped again.</p>
+
+<h2 id="addendum-20180210">Addendum 2018/02/10:</h2>
+<p class="text-justify">As David Harding <a href="https://twitter.com/hrdng/status/955492510998069249">points out</a> the sender could use <a href="https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki">BIP125 ReplaceByFee</a> to update a unconfirmed transaction with new outputs.</p>
+
+<div class="jekyll-twitter-plugin"><blockquote class="twitter-tweet"><p lang="en" dir="ltr">An alternative solution for the original sender is to use BIP125 RBF to update his first unconfirmed transaction with new outputs rather than creating additional new transactions.  This is more efficient and so requires less overall fee, and it avoids the problem you identified.</p>&mdash; David A. Harding [NO176] (@hrdng) <a href="https://twitter.com/hrdng/status/955492510998069249?ref_src=twsrc%5Etfw">January 22, 2018</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+  </div>
+
+  <div class="date">
+    Written on December 18, 2017
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:0xb10c&gma/il.com <b10c>"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com//0xb10c"><i class="svg-icon github"></i></a>
+
+
+
+<a href="/feed.xml"><i class="svg-icon rss"></i></a>
+<a href="https://www.twitter.com//0xb10c"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-109541438-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/The-300MB-default-maxmempool-problem/',
+		  'title': 'The 300MB default maxmempool Problem'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>
