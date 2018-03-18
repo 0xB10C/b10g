@@ -5,8 +5,7 @@ permalink: /about/
 ---
 
 
-Bitcoin, Full Stack and I apparently build Bitcoin tools now  ¯\\_(ツ)_/¯
-
+I'm b10c aka 0xb10c. At the moment I'm a dual student by day and work on bitcoin projects by night for now... 
 
 ### Contact
 - [0xb10c&gma/il.com](mailto:0xb10c&gma/il.com)

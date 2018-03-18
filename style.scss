@@ -19,8 +19,8 @@ html {
 
 body {
 	background: $white;
-  font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  font: 18px/1.4 $notoSans;//$helvetica;
+  color: $darkerGray; //$darkGray;
 }
 
 .container {
@@ -69,11 +69,11 @@ p {
 }
 
 a {
-  color: $blue;
+  color: $b10c;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $blue;
+    color: $b10c;
   }
 }
 
