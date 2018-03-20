@@ -6,7 +6,7 @@ author: b10c
 image: /images/2018-03-20/twitter.png
 ---
 
-How did the median bitcoin feerate evolve [from 2013 to 2015?](https://transactionfee.info/?chart=feerateMedian&rollavg=14&stepPlot=false&startDate=1356744082089&endDate=1451504895039) When were the [feerate spikes in 2017?](https://transactionfee.info/charts?chart=feerateDetailed&rollavg=7&stepPlot=true&startDate=1482873644491&endDate=1514947309661)
+How did the median bitcoin feerate evolve [from 2013 to 2015?](https://transactionfee.info/charts?chart=feerateMedian&rollavg=14&stepPlot=false&startDate=1356744082089&endDate=1451504895039) When were the [feerate spikes in 2017?](https://transactionfee.info/charts?chart=feerateDetailed&rollavg=7&stepPlot=true&startDate=1482873644491&endDate=1514947309661)
 Visualising the bitcoin feerate distribution per block was on my todo list since I've started working on [mempool.observer](https://mempool.observer) in mid 2017. But acquiring the data wasn't as easy as I first thought.
 {: .text-justify}
 
