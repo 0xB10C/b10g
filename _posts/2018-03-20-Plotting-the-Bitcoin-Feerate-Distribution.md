@@ -28,36 +28,36 @@ $$(1)~~~~~~$$ $$fee =  \sum amount_{in} - \sum amount_{out} $$
 
 $$(2)~~~~~~$$ $$feerate = \frac{fee}{vsize} $$
 
-But querying each block with its transactions is not enough. An input only references a previous transaction output (TXO). It doesn't contain the actual input amount. This can be solved by simply querying the TXO. RPC-call batching brings huge performance improvements here.
+However querying each block with its transactions is not enough. An input only references a previous transaction output (TXO). It doesn't contain the actual input amount. This can be solved by simply querying the TXO. RPC-call batching brings huge performance improvements here.
 {: .text-justify}
 
-I coded a small python script and used a local testnet node to generate a first dataset. Everything worked fine and I quickly had a basic chart setup to share my initial proof of concept. However I didn't think about testnet versus mainnet performance. Since blocks on mainnet 1) contain more transactions and  2) more inputs per transaction the script ran ages querying data form my old HDD. I eventually stopped it and started looking for alternatives.
+I coded a small python script and used a local testnet node to generate a first data set. Everything worked fine and I quickly had a basic chart setup to share my initial proof of concept. However, I didn't think about testnet versus mainnet performance. Since blocks on mainnet 1) contain more transactions and  2) more inputs per transaction the script ran ages querying data form my old HDD. I eventually stopped it and started looking for alternatives.
 {: .text-justify}
 
 ## Alternatives
 
 ### Reading the raw .dat files
-I looked at multiple blk*.dat-file parsers to build an TXO-index for quicker lookups. However this turned out to be a dead end. I wanted to automatically update the data every few hours on a small VPS, but the output of the index would probably have been more than hundred gigabytes. This was no option for me.
+I looked at multiple blk*.dat-file parsers to build an TXO-index for quicker lookups. This turned out to be a dead end. I wanted to automatically update the data every few hours on a small VPS, but the output of the index would probably have been more than a hundred gigabytes. This was no option for me.
 {: .text-justify}
 
-### Google's BigQuery Bitcoin Blockchain Dataset
-When I stumbled over [Google's BigQuery Bitcoin Blockchain Dataset](https://cloud.google.com/blog/big-data/2018/02/bitcoin-in-bigquery-blockchain-analytics-on-public-data) I thought that all my data problems were solved. But was I quickly disappointed with the limited data that's available. I missed the reference to the TXO in the input table. The dataset might be well suited for other projects and one plus point definitely is the ten minute update interval, but I, at least for this project, have no use for it.
+### Google's BigQuery Bitcoin Blockchain data set
+When I stumbled over [Google's BigQuery Bitcoin Blockchain data set](https://cloud.google.com/blog/big-data/2018/02/bitcoin-in-bigquery-blockchain-analytics-on-public-data) I thought this would solve all my data problems, but was quickly disappointed with the limited data that's available. I miss the reference to the TXO in the input table. The data set might be well suited for other projects and one plus point definitely is the ten minute update interval, but I, at least for this project, have no use for it.
 {: .text-justify}
 
 ### BlockSci
-Then I found out about [BlockSci](https://github.com/citp/BlockSci): "A high-performance tool for blockchain science and exploration". Is seems to do exactly what I wanted to do. But at the time I looked into it, it didn't use the vsize for feerate calculation. This would have resulted in an incorrect feerate for SegWit transactions. However a few days ago v0.4.0 was released which [uses the vsize for feerate calculations](https://github.com/citp/BlockSci/issues/43). If you are interested in working with data from the bitcoin blockchain I can highly recommend taking a look at their [paper](https://arxiv.org/pdf/1709.02489.pdf).
+Then I found out about [BlockSci](https://github.com/citp/BlockSci): "A high-performance tool for blockchain science and exploration". It seems to do exactly what I wanted to do. At the time I looked into it, it didn't use the vsize for feerate calculation. This would have resulted in an incorrect feerate for SegWit transactions. However, a few days ago v0.4.0 was released which [uses the vsize for feerate calculations](https://github.com/citp/BlockSci/issues/43). If you are interested in working with data from the bitcoin blockchain I can highly recommend taking a look at their [paper](https://arxiv.org/pdf/1709.02489.pdf).
 {: .text-justify}
 
-## Solution: Batching Bitcoin Core and -reindex'ing
+## Solution: Patching Bitcoin Core and -reindex'ing
 As final solution I included a simple LogPrintf in validation.cpp of Bitcoin Core. I print an identifier to grep for followed by the block height and the feerate for each non-coinbase transaction into the debug.log separated by a comma. The patch diff consists of only [three additions](https://github.com/bitcoin/bitcoin/commit/be9d6276092f32de74cc8cd0454f0a82a378f38d). After compiling and a full `-reindex` of the blockchain my debug.log contained all blocks with the feerate of each transaction. Grepping the blocks from the debug.log leaves me with about a gigabyte of raw data (around 100MB gziped).
 {: .text-justify}
 
 ![Block 510851 and its feerates]({{ site.baseurl }}/images/2018-03-20/feerate.png){: style="margin-bottom:10px;margin-top:50px;"}
 
-## Using the dataset
+## Using the data set
 
 I have a pruned node running on a small VPS and insert the percentile data into a database. I then automatically generate the .csv-files which are displayed on [transactionfee.info/charts](https://transactionfee.info/charts?chart=feerateDetailed&rollavg=7). In my next step I'll connect the database to an indicator on [transactionfee.info](https://transactionfee.info/).
 {: .text-justify}
 
-I guess I'll be using the raw data to experiment a bit with Gnuplot in the future. I have a neat idea for that. And retrospectively rating feerate estimation algorithms might be an idea, too. But I'm not sure how big of a topic the feerate will be in the next few months. Feel free to [contact me](https://b10c.me/about/) if you are interested in the dataset.
+I guess I'll be using the raw data to experiment a bit with Gnuplot in the future. I have a neat idea for that. And retrospectively rating feerate estimation algorithms might be an idea, too. Feel free to [contact me](https://b10c.me/about/) if you are interested in the data set.
 {: .text-justify}
