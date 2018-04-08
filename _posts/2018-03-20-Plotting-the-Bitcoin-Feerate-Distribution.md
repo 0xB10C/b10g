@@ -31,7 +31,7 @@ $$(2)~~~~~~$$ $$feerate = \frac{fee}{vsize} $$
 However querying each block with its transactions is not enough. An input only references a previous transaction output (TXO). It doesn't contain the actual input amount. This can be solved by simply querying the TXO. RPC-call batching brings huge performance improvements here.
 {: .text-justify}
 
-I coded a small python script and used a local testnet node to generate a first data set. Everything worked fine and I quickly had a basic chart setup to share my initial proof of concept. However, I didn't think about testnet versus mainnet performance. Since blocks on mainnet 1) contain more transactions and  2) more inputs per transaction the script ran ages querying data form my old HDD. I eventually stopped it and started looking for alternatives.
+I coded a small python script and used a local testnet node to generate a first data set. Everything worked fine and I quickly had a basic chart setup to share my initial proof of concept. However, I didn't think about testnet versus mainnet performance. Since blocks on mainnet 1) contain more transactions and  2) more inputs per transaction the script ran ages querying data from my old HDD. I eventually stopped it and started looking for alternatives.
 {: .text-justify}
 
 ## Alternatives
