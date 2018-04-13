@@ -49,7 +49,7 @@ Then I found out about [BlockSci](https://github.com/citp/BlockSci): "A high-per
 {: .text-justify}
 
 ## Solution: Patching Bitcoin Core and -reindex'ing
-As final solution I included a simple LogPrintf in validation.cpp of Bitcoin Core. I print an identifier to grep for followed by the block height and the feerate for each non-coinbase transaction into the debug.log separated by a comma. The patch diff consists of only [three additions](https://github.com/bitcoin/bitcoin/commit/be9d6276092f32de74cc8cd0454f0a82a378f38d). After compiling and a full `-reindex` of the blockchain my debug.log contained all blocks with the feerate of each transaction. Grepping the blocks from the debug.log leaves me with about a gigabyte of raw data (around 100MB gziped).
+As final solution I included a simple LogPrintf in validation.cpp of Bitcoin Core. I print an identifier to grep for followed by the block height and the feerate for each non-coinbase transaction into the debug.log separated by a comma. The [patch diff](https://github.com/0xB10C/bitcoin/commit/6b2ef276ceeec7f1cf64f84b5d1cd9d5be9e6d10) is only a few lines. After compiling and a full `-reindex` of the blockchain my debug.log contained all blocks with the feerate of each transaction. Grepping the blocks from the debug.log leaves me with about a gigabyte of raw data (around 100MB gziped).
 {: .text-justify}
 
 ![Block 510851 and its feerates]({{ site.baseurl }}/images/2018-03-20/feerate.png){: style="margin-bottom:10px;margin-top:50px;"}
