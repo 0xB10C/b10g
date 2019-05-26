@@ -1,9 +1,10 @@
 ---
 layout: post
-title: The 300MB default maxmempool Problem
+title: The 300 MB default maxmempool Problem
 date: 2017-12-18 16:16:16 +0100
 author: b10c
 image: /images/2017-12-18/transactions-dropping-from-mempool.png
+comments: true
 ---
 
 Unconfirmed transaction are quite a hassle for bitcoin users.
@@ -12,9 +13,9 @@ I recently came across an interesting problem which is not the usual "my transac
 
 In the last weeks of 2017 the number of unconfirmed transactions has again reached all time highs.
 Periods with over 100k transactions in my mempool where not unusal.
-Bitcoin Core limits the system memory allocated for storing unconfirmed transactions to 300MB by default.
+Bitcoin Core limits the system memory allocated for storing unconfirmed transactions to 300 MB by default.
 This serves as an anti-DoS feature.
-Fully used 300MB of RAM equal about 110MB of actual raw transaction data.
+Fully used 300 MB of RAM equal about 110 MB of actual raw transaction data.
 This default value [can be changed](https://en.bitcoin.it/wiki/Running_Bitcoin) with the `-maxmempool <n>` option where `n` is the amount of megabytes allocated to store unconfirmed transactions.
 {: .text-justify}
 
@@ -30,7 +31,7 @@ $ bitcoin-cli getmempoolinfo
 {% endhighlight %}
 
 
-Once 300MB of system memory are reached, Bitcoin  Core starts dropping low-feerate transactions from the mempool for high-feerate transactions.
+Once 300 MB of system memory are filled, Bitcoin Core starts dropping low-feerate transactions from the mempool for high-feerate transactions.
 Additionally a _mempoolminfee_-threshold is set to prevent new low fee transactions from entering the mempool.
 {: .text-justify}
 
@@ -52,7 +53,7 @@ This can be irritating for users.
 {: .text-justify}
 
 I came a cross a particular form of this problem, when a friend asked me, why he can see a certain low-fee transaction on [bitaps.com](https://bitaps.com), but not on [blockchain.info](https://blockchain.info).
-My local node, with a default 300MB _maxmempool_, responded with an error on calling the _getrawtransaction_ RPC with the txid.
+My local node, with a default 300 MB _maxmempool_, responded with an error on calling the _getrawtransaction_ RPC with the txid.
 {: .text-justify}
 
 {% highlight sh %}

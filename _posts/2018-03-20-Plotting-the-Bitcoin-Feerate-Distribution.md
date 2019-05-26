@@ -4,6 +4,7 @@ title: Plotting the Bitcoin Feerate Distribution
 date: 2018-03-18 12:00:00 +0100
 author: b10c
 image: /images/2018-03-20/twitter.png
+comments: true
 ---
 
 How did the median bitcoin feerate evolve [from 2013 to 2015?](https://transactionfee.info/charts/feerate/median?avg=7&step=false&start=2013-01-01&end=2015-01-01) When were the [feerate spikes in 2017?](https://transactionfee.info/charts/feerate/percentiles?avg=7&step=false&start=2017-01-01&end=2018-01-01)

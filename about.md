@@ -1,29 +1,17 @@
 ---
 layout: page
-title: About b10c
+title: About me
 permalink: /about/
 ---
 
 
-I'm b10c. I'm a student by day and work on bitcoin projects by night.
+I'm Timo aka 0xb10c. I code.
 
-### Contact
-- [0xb10c&gma/il.com](mailto:0xb10c&gma/il.com)
-- [keybase.io/b10c](https://keybase.io/b10c)
-- [twitter.com/0xB10C](https://twitter.com/0xB10C)
+I'm **looking for a job in a engineer/developer** position in the bitcoin space, remote preferred, starting mid 2019. Fulltime or contract work. 
 
-
-### Donations:
-#### bech32
-
-![bc1qrqxh2d6gg0gmfd0s2p0q2ff9ruddgl453d50kz](images/bech32.png)
-
-bc1qrqxh2d6gg0gmfd0s2p0q2ff9ruddgl453d50kz
-
-#### paynmy **[+steepbar89d](https://paynym.is/+steepbar89d)**
+You can contact me over email [0xb10c&gma/il.com](mailto:0xb10c&gma/il.com), over keybase [b10c](https://keybase.io/b10c) or on twitter [@0xB10C](https://twitter.com/0xB10C).
 
 
-![PM8TJbRL6UMSkUbuUV3JuRidZXCc6ZsU3X3TXfC6rPAnKvtv61LF9uW5s294hu2oR76kjEXduXYJtfsH3dxS8HZheQnJm2R83DTNsNNec1DVJcDm4NwK](https://paynym.is/PM8TJbRL6UMSkUbuUV3JuRidZXCc6ZsU3X3TXfC6rPAnKvtv61LF9uW5s294hu2oR76kjEXduXYJtfsH3dxS8HZheQnJm2R83DTNsNNec1DVJcDm4NwK/codeimage)
 
+I accept tips supporting my projects or pay for server uptime onchain via [bc1qrqxh2d6gg0gmfd0s2p0q2ff9ruddgl453d50kz](bitcoin:bc1qrqxh2d6gg0gmfd0s2p0q2ff9ruddgl453d50kz) or offchain currently only via [tippin.me](https://tippin.me/@0xB10C).
 
-`PM8TJbRL6UMSkUbuUV3JuRidZXCc6ZsU3X3TXfC6rPAnKvtv61LF9uW5s294hu2oR76kjEXduXYJtfsH3dxS8HZheQnJm2R83DTNsNNec1DVJcDm4NwK`
