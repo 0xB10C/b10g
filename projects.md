@@ -11,7 +11,7 @@ permalink: /projects/
   <a href="https://mempool.observer"><img src="/images/mempool-observer-icon.png" alt="mempool.observer logo"></a>
 </p>
 
-This site displays mempool statistics. For example the current mempool and historical mempool of my node are shown. The idea is to provide information about the current mempool state to a bitcoin user with a seemingly stuck and longtime-unconfirmed transaction. Additionally the site can be used for double checking feerate estimates before transacting. The current site version two build in spring 2019 - a complete remake from the one I [first build](https://web.archive.org/web/20170912070511/https://mempool.observer/) in mid 2017. [Read more about the project's history.](https://github.com/0xB10C/memo#project-history)
+This site displays mempool statistics. For example the current mempool and historical mempool of my node are shown. The idea is to provide information about the current mempool state to a bitcoin user with a seemingly stuck and longtime-unconfirmed transaction. Additionally the site can be used for double checking feerate estimates before transacting. The current site is v2, which I build in spring 2019 as a complete remake from [v1](https://web.archive.org/web/20170912070511/https://mempool.observer/) I build in mid 2017. [Read more about the project's history.](https://github.com/0xB10C/memo#project-history)
 
 - [https://mempool.observer](https://mempool.observer)
 - [Source on GitHub](https://github.com/0xB10C/memo)
