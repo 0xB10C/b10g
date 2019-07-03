@@ -8,7 +8,7 @@ image: /images/history-1-nov-08.png
 comments: true
 ---
 
-To fully understand the current Bitcoin protocol development, knowledge about historical events is essential.
+To fully understand the current Bitcoin protocol developments, knowledge about historical events is essential.
 This blog post highlights selected events, software releases and bug fixes.
 The attached [timeline](#timeline-bitcoin-history) provides details for each event.
 {: .text-justify}
