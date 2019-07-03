@@ -8,25 +8,24 @@ image: /images/history-1-nov-08.png
 comments: true
 ---
 
-To fully understand the current Bitcoin protocol developments, knowledge about historical events is essential.
-This blog post highlights selected events, software releases and bug fixes.
+To fully understand the current state Bitcoin protocol development, knowledge about historical events is essential.
+This blog post highlights selected historical events, software releases and bug fixes.
 The attached [timeline](#timeline-bitcoin-history) provides extra detail for each event.
 {: .text-justify}
 
-I wasn't following the Bitcoin space while the majority of these events happened.
+I wasn't following the Bitcoin space when a majority of these events happened.
 A big part of the timeline is adopted from a talk [John Newberry](https://twitter.com/jfnewbery) gave on the [History and Philosophy of Bitcoin Development](https://www.meetup.com/BitDevsNYC/events/262321510/). 
-{: .text-justify}
-
 The title is chosen to remind that a blog post can't capture every event.
 History is in the eye of the beholder.
 History evolves.
 If you have a suggestion about something I missed or want to propose a change:
-The attached timeline is an open source project [`bitcoin-development-history`](https://github.com/0xB10C/bitcoin-development-history) everybody can contribute to.
+The attached timeline is an open source project [`bitcoin-development-history`](https://github.com/0xB10C/bitcoin-development-history). 
+Open for everyone to contribute and use.
 {: .text-justify}
 
 ## With Satoshi
 
-The timeline tells a story which begins sometime in early 2007.
+The timeline tells a story beginning sometime in early 2007.
 Satoshi Nakamoto starts working on Bitcoin. 
 The peer-to-peer electronic cash system with no trusted third party.
 Controlled only by the software users run.
@@ -37,12 +36,13 @@ These add for example support for [Linux](#2009-release-0-2-0) and [macOS](#2010
 Over the summer of 2010 Satoshi authors a few critical software changes. 
 For example [checkpoints](#2010-release-0-3-2) are introduced as a safeguard against malicious peers broadcasting low difficulty chains. 
 A node enforcing these checkpoint rejects blocks which do not hash to a hard coded block hash for a specific block height. 
-Checkpoints are added by Satoshi alone. 
+Checkpoints are added by Satoshi alone.
+In theory allowing Satoshi to control what chain the whole network follows.  
 {: .text-justify}
 
 A few days later Satoshi releases the first consensus change in [version v0.3.3](#2010-release-0-3-3). 
 Satoshi urges users to upgrade.
-Over the next month [multiple minor releases](#2010-release-multiple-0-3-xx) are published.
+Over the next month multiple [minor releases](#2010-release-multiple-0-3-xx) are published.
 One of the fixes a [critical overflow bug](#2010-bug-overflow-bug) which was exploited to create two high value UTXOs.
 Satoshi advises miners to reorg the blocks containing these transactions.
 {: .text-justify}
@@ -68,7 +68,7 @@ Satoshi later writes in one of his [last emails](#2011-other-last-contact-satosh
 {: .text-justify}
 
 Around the same time the [development process moves](#2010-other-moved-to-github) from SVN to GitHub.
-Which leads to famous [contributors](#2011-other-new-contributors) like TheBlueMatt, sipa, laanwj and gmaxwell join the project. 
+Which leads to longtime [contributors](#2011-other-new-contributors) like TheBlueMatt, sipa, laanwj and gmaxwell joining the project. 
 In mid 2011 the [BIP progress](#2011-other-first-bip) for Bitcoin Improvement Proposal is introduced.
 In the last quarter of 2011 and the first of 2012 the community discusses [various proposals](#2011-other-p2sh) that allow the receiver of a transaction to specify the script needed to spend it.
 Out of them P2SH is implemented and merged.
@@ -80,14 +80,14 @@ However the announcement isn't welcome by the community.
 Early on people raise the fear of development centralization.
 {: .text-justify}
 
-Bitcoin version [v0.8.0 is released](#2013-release-0-8-0) in spring 2013 .
+Bitcoin version [v0.8.0 is released](#2013-release-0-8-0) in spring 2013.
 Two weeks after the release an [unexpected hardfork](#2013-bug-hardfork) splits the network in nodes that have and haven't yet upgraded.
 The hardfork is resolved fairly quickly. 
 Different miners react by shifting their hashpower to the chain valid for both upgraded and not upgraded nodes.
 {: .text-justify}
 
 In late 2013 the Bitcoin Software is [rebranded to Bitcoin Core](#2013-other-rebranding-to-core).
-In the next year companies such as [Chaincode](#2014-company-chaincode) and [Blockstream](#2014-company-blockstream) are founded. 
+In the following year companies such as [Chaincode](#2014-company-chaincode) and [Blockstream](#2014-company-blockstream) are founded. 
 Later the [MIT Digital Currency Initiative](#2015-other-mit-dci) joins Chaincode and Blockstream by paying developers and researchers working on Bitcoin. 
 {: .text-justify}
 
