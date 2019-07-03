@@ -1,109 +1,111 @@
 ---
 layout: post
-title: The incomplete history of Bitcoin development de-centralisation
-date: 2019-06-20 12:00:00 +0100
+title: The incomplete history of Bitcoin development
+date: 2019-07-02 12:00:00 +0100
 author: b10c
 hidden: true
+image: /images/history-1-nov-08.png
+comments: true
 ---
 
-To understand the current state of Bitcoin protocol development, knowledge about historical events in it's development is essential.
-This blog post and the attached timeline highlight important events, software releases and bug fixes. 
+To fully understand the current Bitcoin protocol development, knowledge about historical events is essential.
+This blog post highlights selected events, software releases and bug fixes.
+The attached [timeline](#timeline-bitcoin-history) provides details for each event.
 {: .text-justify}
 
-The title is deliberately choosen to !represent!other word! that a short blog post about Bitcoin's history can't capture every event.
+I wasn't following the Bitcoin space when the majority of these events happened.
+Most points on the timeline are adopted from a talk [John Newberry](https://twitter.com/jfnewbery) gave on the [History and Philosophy of Bitcoin Development](https://www.meetup.com/BitDevsNYC/events/262321510/). 
+{: .text-justify}
+
+The title is chosen to remind the reader that a blog post can't capture every event.
 History is in the eye of the beholder.
 History evolves.
-{: .text-justify}
-
-I personally weren't activly following developments in the Bitcoin space when the majority of the events happend.
-Most points on the timeline are adopted from a talk [John Newberry](https://twitter.com/jfnewbery) gave on the »[History and Philosophy of Bitcoin Development](https://www.meetup.com/BitDevsNYC/events/262321510/)«. 
 If you have a suggestion about something I missed or want to propose a change:
-Please consider opening a [pull request](TODO:) with a change or an [issue](TODO:) to the open source project [TODO:name](TODO:).
-If you are unfamiliar with GitHub, let me please know over other communication channels.
+The attached timeline is an open source project [`bitcoin-development-history`](https://github.com/0xB10C/bitcoin-development-history) everybody can use and contribute to.
+Please consider opening a [pull request](https://github.com/0xB10C/bitcoin-development-history/pulls) or an [issue](https://github.com/0xB10C/bitcoin-development-history/issues).
 {: .text-justify}
 
-## The centralized beginning
+## With Satoshi
 
-The timeline below tells a story which begins sometime early in 2007.
-Satoshi start working on Bitcoin. 
+The timeline tells a story which begins sometime in early 2007.
+Satoshi Nakamoto starts working on Bitcoin. 
 The peer-to-peer electronic cash system with no trusted third party.
-Controlled only by the software users run on their computers.
+Controlled only by the software users run.
 {: .text-justify}
 
 Early on contributors join Satoshi working on Bitcoin.
 These add for example support for [Linux](#2009-release-0-2-0) and [macOS](#2010-release-0-3-0).
-Over the summer of 2010 Satoshi makes a lot of critical software changes. 
-For example [checkpoints](#2010-release-0-3-2) are introduced as a safeguard against malicous peers broadcasting low difficulty chains. 
-Checkpoint solve that by rejecting blocks which do not hash to the hard coded block hash for a specific block height. 
-These checkpoints are added by Satoshi. 
-*Satoshi can invalidate chains*.
+Over the summer of 2010 Satoshi authors a lot of critical software changes. 
+For example [checkpoints](#2010-release-0-3-2) are introduced as a safeguard against malicious peers broadcasting low difficulty chains. 
+Checkpoint help by rejecting blocks which do not hash to a hard coded block hash for a specific block height. 
+Satoshi alone adds these checkpoints. 
 {: .text-justify}
 
-A few days later Satoshi relased the first consensus change in [version v0.3.3](#2010-release-0-3-3). 
+A few days later Satoshi released the first consensus change in [version v0.3.3](#2010-release-0-3-3). 
 Satoshi urges users to upgrade.
-In the next month multiple minor releases are published.
+Over the next month [multiple minor releases](#2010-release-multiple-0-3-xx) are published.
 One of the fixes a [critical overflow bug](#2010-bug-overflow-bug) where two high value UTXOs are created.
-Satoshi promts miners to reorg the blocks with the invalid transactions.
-*Satoshi can command miners to reorg the chain*.
+Satoshi advises miners to reorg the blocks containing the invalid transactions.
 {: .text-justify}
 
 A week later Satoshi introduces an [alert system](#2010-post-alert-system) to inform node operators about problems in the network.
-The alert system includes a safe-mode for a short period of time.
-The safe mode, once triggered by an alert, disables all money handling RPC methods in the whole network.
+The alert system includes a safe mode.
+The safe mode, once triggered, disables all money handling RPC methods in the entire network.
 Alerts are only valid when signed with a key only Satoshi has access to.
-Some users raise the question what could happen when a second party, for example a goverment, gets access to these keys by arresting Satoshi.
-*Satoshis keys stop payment processing in the whole network*.
+Some users raise the question what could happen when a second party, for example a government, gets access to these keys by for example arresting Satoshi.
 {: .text-justify}
 
-The main concern is not that Satoshi could turn evil on the network and try to destroy it. 
-There shouln't be a single point of failure. 
-No central point which opens attack vectors.
+Satoshi has the full power over the Bitcoin network.
+The main concern here isn't that Satoshi could turn evil on the network and try to destroy it. 
+The main concern is that there shouldn't be a single point of failure in a decentralized system.
+Some might argue Satoshi stepping away from Bitcoin is one of his greatest contributions.
 {: .text-justify}
 
-## The disappearing of Satoshi
+## Without Satoshi
 
-Later that year, in December 2010, Satoshi starts his [last thread](#2010-post-final) on bitcointalk.org.
-Satoshi writes in one of his [last emails](#2011-other-last-contact-satoshi): »I've moved on to other things. It's in good hands with Gavin and everyone.«
+In December 2010 Satoshi opened his [last thread](#2010-post-final) on bitcointalk announcing the removal of the safe mode.
+Satoshi later writes in one of his [last emails](#2011-other-last-contact-satoshi):
+*»I've moved on to other things. It's in good hands with Gavin and everyone.«*
 {: .text-justify}
 
-Around that time the [development process moves](#2010-other-moved-to-github) from SVN to GitHub.
-Famouse [contributors](#2011-other-new-contributors) like TheBlueMatt, sipa, laanwj and gmaxwell join the project. 
+Around the same time the [development process moves](#2010-other-moved-to-github) from SVN to GitHub.
+And famous [contributors](#2011-other-new-contributors) like TheBlueMatt, sipa, laanwj and gmaxwell join the project. 
 In mid 2011 the [BIP progress](#2011-other-first-bip) for Bitcoin Improvement Proposal is introduced.
 In the last quarter of 2011 and the first of 2012 the community discusses [various proposals](#2011-other-p2sh) that allow the receiver of a transaction to specify the script needed to spend it.
-Out of them P2SH is merged.
+Out of them P2SH is implemented and merged.
 {: .text-justify}
 
-In fall 2012 the [Bitcoin Foundation](#2012-other-bitcoin-foundation) is annouced. 
-**TODO: what does the foundation do?**
-However the annoucement of the Bitcoin foundation isn't welcome by the community.
+In fall 2012 the [Bitcoin Foundation](#2012-other-bitcoin-foundation) is announced.
+It hopes to be for Bitcoin what the Linux Foundation is for Linux.
+However the announcement of the Bitcoin Foundation isn't welcome by the community.
+Early on people raise the fear of development centralization.
 {: .text-justify}
 
-
-In spring 2013 Bitcoin version [v0.8.0 is released](#2013-release-0-8-0).
-However two weeks after the release an [unexpected hardfork](#2013-bug-hardfork) split the network in nodes that have and haven't upgraded.
-The hardfork was resovled fairly quickly. 
-Different miners reacted by shifting their hash power to the chain valid for the old and the new nodes.
+Bitcoin version [v0.8.0 is released](#2013-release-0-8-0) in spring 2013 .
+Two weeks after the release an [unexpected hardfork](#2013-bug-hardfork) splits the network in nodes that have and haven't yet upgraded.
+The hardfork is resolved fairly quickly. 
+Different miners react by shifting their hashpower to the chain valid for both upgraded and not upgraded versions.
 {: .text-justify}
 
-In late 2013 the Bitcoin Software is [rebranded](#2013-other-rebranding-to-core) to Bitcoin Core.
-Companies such as [Chaincode](#2014-company-chaincode) and [Blockstream](#2014-company-blockstream) and later the [MIT Digital Currency Initiative](#2015-other-mit-dci) are founded. 
+In late 2013 the Bitcoin Software is [rebranded to Bitcoin Core](#2013-other-rebranding-to-core).
+In the next year companies such as [Chaincode](#2014-company-chaincode) and [Blockstream](#2014-company-blockstream) are founded. 
+Later the [MIT Digital Currency Initiative](#2015-other-mit-dci) joins Chaincode and Blockstream by paying developers and researchers working on Bitcoin. 
 {: .text-justify}
 
-- lightning network
-- bip 2
-- alert system retired
-- segwit 
-- taproot proposed
+In February 2015 Poon and Dryja release the first draft of the [Lightning Whitepaper](#2015-other-lightning-whitepaper).
+The next year Dashjr revises the BIP process with [BIP 2](#2016-other-bip-2) and the Bitcoin Core release v0.13.0 includes [SegWit](#2016-release-0-13-1) as a softfork. 
+At the beginning of November 2016 the [alert system](#2016-other-alert-system-retired) is retired and in August 2017 [SegWit](#2017-other-segwit-activated) gets activated. 
+{: .text-justify}
 
-
-
-Today removed:
-- alert system
-- checkpoints not that curcial
-- no new checkpoints added since 
+The year 2019 brings a new company, [Square Crypto](#2019-company-squarecrypto), sponsoring Bitcoin development and a the [taproot proposal](#2019-post-taproot) by Wuille.
+{: .text-justify}
 
 <br>
-<br>
+
+# Timeline 
+
+The timeline is based on my open source project [`bitcoin-development-history`](https://github.com/0xB10C/bitcoin-development-history).
+
 <br>
 
 <div class="timeline" id="timeline-bitcoin-history"></div> 
@@ -182,7 +184,7 @@ Today removed:
 
   window.onload = function () {
 
-    loadJSON("/data/bitcoin-history.json", function (response) {
+    loadJSON("https://bitcoin-development-history.b10c.me/bitcoin-history.json", function (response) {
       var timepoints = JSON.parse(response);
 
       var timeline = document.getElementById("timeline-bitcoin-history")
@@ -331,7 +333,7 @@ Today removed:
   }
 
   .content.type-post {
-    border-image: linear-gradient(45deg, rgba(126, 126, 126, 0.75) 0%, rgba(85, 85, 85, 0.75)) 1 100%; 
+    border-image: linear-gradient(45deg, rgba(240, 225, 60, 0.75) 0%, rgba(250, 229, 0, 0.75)) 1 100%; 
   }
 
 </style>
