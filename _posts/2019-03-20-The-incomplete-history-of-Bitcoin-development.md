@@ -15,11 +15,13 @@ The attached [timeline](#timeline-bitcoin-history) provides extra detail for eac
 
 I wasn't following the Bitcoin space when a majority of these events happened.
 A big part of the timeline is adopted from a talk [John Newberry](https://twitter.com/jfnewbery) gave on the [History and Philosophy of Bitcoin Development](https://www.meetup.com/BitDevsNYC/events/262321510/). 
-The title is chosen to remind that a blog post can't capture every event.
+{: .text-justify}
+
+The title of this blog post is chosen to remind you that this post probably doesn't include every event.
 History is in the eye of the beholder.
 History evolves.
 If you have a suggestion about something I missed or want to propose a change:
-The attached timeline is an open source project [`bitcoin-development-history`](https://github.com/0xB10C/bitcoin-development-history). 
+The attached timeline is an open source called project [`bitcoin-development-history`](https://github.com/0xB10C/bitcoin-development-history). 
 Open for everyone to contribute and use.
 {: .text-justify}
 
@@ -28,22 +30,23 @@ Open for everyone to contribute and use.
 The timeline tells a story beginning sometime in early 2007.
 Satoshi Nakamoto starts working on Bitcoin. 
 The peer-to-peer electronic cash system with no trusted third party.
-Controlled only by the software users run.
+A system only controlled by the software which its users run.
 {: .text-justify}
 
 Early on contributors join Satoshi working on Bitcoin.
 These add for example support for [Linux](#2009-release-0-2-0) and [macOS](#2010-release-0-3-0).
 Over the summer of 2010 Satoshi authors a few critical software changes. 
-For example [checkpoints](#2010-release-0-3-2) are introduced as a safeguard against malicious peers broadcasting low difficulty chains. 
-A node enforcing these checkpoint rejects blocks which do not hash to a hard coded block hash for a specific block height. 
-Checkpoints are added by Satoshi alone.
-In theory allowing Satoshi to control what chain the whole network follows.  
+For example [checkpoints](#2010-release-0-3-2) are introduced as a safeguard against malicious peers broadcasting low difficulty chains.
+A node enforcing these checkpoint rejects chains which do not include specific block hash at a specific height.
+Checkpoints are hard coded by Satoshi alone.
+In theory allowing Satoshi to control which chain the whole network follows.  
 {: .text-justify}
 
-A few days later Satoshi releases the first consensus change in [version v0.3.3](#2010-release-0-3-3). 
+A few days after adding checkpoints Satoshi releases the first consensus change in [version v0.3.3](#2010-release-0-3-3). 
 Satoshi urges users to upgrade.
-Over the next month multiple [minor releases](#2010-release-multiple-0-3-xx) are published.
-One of the fixes a [critical overflow bug](#2010-bug-overflow-bug) which was exploited to create two high value UTXOs.
+Over the next month multiple [minor versions](#2010-release-multiple-0-3-xx) get released.
+One of the fixes a [critical overflow bug](#2010-bug-overflow-bug).
+This bug was exploited to create two high value UTXOs.
 Satoshi advises miners to reorg the blocks containing these transactions.
 {: .text-justify}
 
@@ -51,13 +54,13 @@ A week later Satoshi introduces an [alert system](#2010-post-alert-system) to in
 The alert system includes a safe mode.
 The safe mode, once triggered, disables all money handling RPC methods in the entire network.
 Only Satoshi can create valid network alerts by signing them with a private key.
-Some users raise the question what could happen when a second party, for example a government, gets access to the key.
+Some users raise the question what could happen when a second party, for example a government, gets access to this key.
 {: .text-justify}
 
 At this point Satoshi has the a lot of power over the Bitcoin network.
 The main concern here isn't that Satoshi could turn evil on the network and try to destroy it. 
 The main concern is that there shouldn't be a single point of failure in a decentralized system.
-Some might argue Satoshi stepping away from Bitcoin is one of his greatest contributions.
+Some might argue Satoshi stepping away from Bitcoin is one of his greatest contributions next to Bitcoin itself.
 {: .text-justify}
 
 ## Without Satoshi
@@ -67,9 +70,9 @@ Satoshi later writes in one of his [last emails](#2011-other-last-contact-satosh
 *»I've moved on to other things. It's in good hands with Gavin and everyone.«*
 {: .text-justify}
 
-Around the same time the [development process moves](#2010-other-moved-to-github) from SVN to GitHub.
+Around the same time the [development process](#2010-other-moved-to-github) from SVN to GitHub.
 Which leads to longtime [contributors](#2011-other-new-contributors) like TheBlueMatt, sipa, laanwj and gmaxwell joining the project. 
-In mid 2011 the [BIP progress](#2011-other-first-bip) for Bitcoin Improvement Proposal is introduced.
+In mid 2011 the [BIP process](#2011-other-first-bip) for Bitcoin Improvement Proposal is introduced.
 In the last quarter of 2011 and the first of 2012 the community discusses [various proposals](#2011-other-p2sh) that allow the receiver of a transaction to specify the script needed to spend it.
 Out of them P2SH is implemented and merged.
 {: .text-justify}
@@ -82,13 +85,13 @@ Early on people raise the fear of development centralization.
 
 Bitcoin version [v0.8.0 is released](#2013-release-0-8-0) in spring 2013.
 Two weeks after the release an [unexpected hardfork](#2013-bug-hardfork) splits the network in nodes that have and haven't yet upgraded.
-The hardfork is resolved fairly quickly. 
+The hardfork is resolved fairly quick. 
 Different miners react by shifting their hashpower to the chain valid for both upgraded and not upgraded nodes.
 {: .text-justify}
 
 In late 2013 the Bitcoin Software is [rebranded to Bitcoin Core](#2013-other-rebranding-to-core).
 In the following year companies such as [Chaincode](#2014-company-chaincode) and [Blockstream](#2014-company-blockstream) are founded. 
-Later the [MIT Digital Currency Initiative](#2015-other-mit-dci) joins Chaincode and Blockstream by paying developers and researchers working on Bitcoin. 
+Later the [MIT Digital Currency Initiative](#2015-other-mit-dci) joins Chaincode and Blockstream by paying developers and researchers to work on Bitcoin. 
 {: .text-justify}
 
 In February 2015 Poon and Dryja release the first draft of the [Lightning Whitepaper](#2015-other-lightning-whitepaper).
