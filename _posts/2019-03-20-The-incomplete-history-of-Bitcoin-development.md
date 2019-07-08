@@ -14,15 +14,13 @@ The attached [timeline](#timeline-bitcoin-history) provides extra detail for eac
 {: .text-justify}
 
 I wasn't following the Bitcoin space when a majority of these events happened.
-A big part of the timeline is adopted from a talk [John Newberry](https://twitter.com/jfnewbery) gave on the [History and Philosophy of Bitcoin Development](https://www.meetup.com/BitDevsNYC/events/262321510/). 
+A big part of the timeline is adopted from a talk [John Newbery](https://twitter.com/jfnewbery) gave on the [History and Philosophy of Bitcoin Development](https://www.meetup.com/BitDevsNYC/events/262321510/). 
 {: .text-justify}
 
-The title of this blog post is chosen to remind you that this post probably doesn't include every event.
+The title of this blog post is chosen to remind you that this post doesn't include every event.
 History is in the eye of the beholder.
 History evolves.
-If you have a suggestion about something I missed or want to propose a change:
-The attached timeline is an open source called project [`bitcoin-development-history`](https://github.com/0xB10C/bitcoin-development-history). 
-Open for everyone to contribute and use.
+If you have a suggestion about something I missed or want to propose a change, please propose changes to the open source [`bitcoin-development-history`](https://github.com/0xB10C/bitcoin-development-history) project, which was used to generate the attached timeline.
 {: .text-justify}
 
 ## With Satoshi
@@ -34,7 +32,7 @@ A system only controlled by the software which its users run.
 {: .text-justify}
 
 Early on contributors join Satoshi working on Bitcoin.
-These add for example support for [Linux](#2009-release-0-2-0) and [macOS](#2010-release-0-3-0).
+These new contributors add support for [Linux](#2009-release-0-2-0) and [macOS](#2010-release-0-3-0) and make many other contributions to the project.
 Over the summer of 2010 Satoshi authors a few critical software changes. 
 For example, [checkpoints](#2010-release-0-3-2) are introduced as a safeguard against malicious peers broadcasting low difficulty chains.
 A node enforcing these checkpoint rejects chains which do not include specific block hash at a specific height.
@@ -63,24 +61,22 @@ The main concern is that there shouldn't be a single point of failure in a decen
 Some might argue Satoshi stepping away from Bitcoin is one of his greatest contributions next to Bitcoin itself.
 {: .text-justify}
 
-## Without Satoshi
-
-In December 2010 Satoshi opened his [last thread](#2010-post-final) on bitcointalk announcing the removal of the safe mode.
+In December 2010 Satoshi openes his [last thread](#2010-post-final) on bitcointalk announcing the removal of the safe mode.
 Satoshi later writes in one of his [last emails](#2011-other-last-contact-satoshi):
 *»I've moved on to other things.  It's in good hands with Gavin and everyone.«*
 {: .text-justify}
 
-Around the same time the [development process](#2010-other-moved-to-github) from SVN to GitHub.
-Which leads to longtime [contributors](#2011-other-new-contributors) like TheBlueMatt, sipa, laanwj and gmaxwell joining the project. 
+## Without Satoshi
+
+Around the same time the [development process](#2010-other-moved-to-github) from SVN to GitHub, which leads to longtime [contributors](#2011-other-new-contributors) like TheBlueMatt, sipa, laanwj and gmaxwell joining the project. 
 In mid 2011 the [BIP process](#2011-other-first-bip) for Bitcoin Improvement Proposal is introduced.
 In the last quarter of 2011 and the first of 2012 the community discusses [various proposals](#2011-other-p2sh) that allow the receiver of a transaction to specify the script needed to spend it.
 Out of them P2SH is implemented and merged.
 {: .text-justify}
 
 In fall 2012 the [Bitcoin Foundation](#2012-other-bitcoin-foundation) is announced.
-The Bitcoin Fundation hopes to archive for Bitcoin what the Linux Foundation does for Linux.
-However the announcement isn't welcome by the community.
-Early on people raise the fear of development centralization.
+The Bitcoin Foundation hopes to achieve for Bitcoin what the Linux Foundation does for Linux.
+Some people raise the fear of development centralization in the announcement thread.
 {: .text-justify}
 
 Bitcoin version [v0.8.0 is released](#2013-release-0-8-0) in spring 2013.
