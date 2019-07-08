@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The incomplete history of Bitcoin development
-date: 2019-07-02 12:00:00 +0100
+date: 2019-07-08 09:00:00 +0100
 author: b10c
 hidden: true
 image: /images/history-1-nov-08.png
@@ -36,17 +36,17 @@ A system only controlled by the software which its users run.
 Early on contributors join Satoshi working on Bitcoin.
 These add for example support for [Linux](#2009-release-0-2-0) and [macOS](#2010-release-0-3-0).
 Over the summer of 2010 Satoshi authors a few critical software changes. 
-For example [checkpoints](#2010-release-0-3-2) are introduced as a safeguard against malicious peers broadcasting low difficulty chains.
+For example, [checkpoints](#2010-release-0-3-2) are introduced as a safeguard against malicious peers broadcasting low difficulty chains.
 A node enforcing these checkpoint rejects chains which do not include specific block hash at a specific height.
-Checkpoints are hard coded by Satoshi alone.
-In theory allowing Satoshi to control which chain the whole network follows.  
+Checkpoints are hard-coded by Satoshi alone.
+In theory, allowing Satoshi to control which chain the whole network follows.  
 {: .text-justify}
 
 A few days after adding checkpoints Satoshi releases the first consensus change in [version v0.3.3](#2010-release-0-3-3). 
 Satoshi urges users to upgrade.
 Over the next month multiple [minor versions](#2010-release-multiple-0-3-xx) get released.
 One of the fixes a [critical overflow bug](#2010-bug-overflow-bug).
-This bug was exploited to create two high value UTXOs.
+This bug was exploited to create two high-value UTXOs.
 Satoshi advises miners to reorg the blocks containing these transactions.
 {: .text-justify}
 
@@ -54,10 +54,10 @@ A week later Satoshi introduces an [alert system](#2010-post-alert-system) to in
 The alert system includes a safe mode.
 The safe mode, once triggered, disables all money handling RPC methods in the entire network.
 Only Satoshi can create valid network alerts by signing them with a private key.
-Some users raise the question what could happen when a second party, for example a government, gets access to this key.
+Some users raise the question what could happen when a second party, for example, a government, gets access to this key.
 {: .text-justify}
 
-At this point Satoshi has the a lot of power over the Bitcoin network.
+At this point, Satoshi has a lot of power over the Bitcoin network.
 The main concern here isn't that Satoshi could turn evil on the network and try to destroy it. 
 The main concern is that there shouldn't be a single point of failure in a decentralized system.
 Some might argue Satoshi stepping away from Bitcoin is one of his greatest contributions next to Bitcoin itself.
@@ -67,7 +67,7 @@ Some might argue Satoshi stepping away from Bitcoin is one of his greatest contr
 
 In December 2010 Satoshi opened his [last thread](#2010-post-final) on bitcointalk announcing the removal of the safe mode.
 Satoshi later writes in one of his [last emails](#2011-other-last-contact-satoshi):
-*»I've moved on to other things. It's in good hands with Gavin and everyone.«*
+*»I've moved on to other things.  It's in good hands with Gavin and everyone.«*
 {: .text-justify}
 
 Around the same time the [development process](#2010-other-moved-to-github) from SVN to GitHub.
