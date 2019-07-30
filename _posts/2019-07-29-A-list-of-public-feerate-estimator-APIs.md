@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A List of Public Bitcoi Feerate Estimation APIs
+title: A List of Public Bitcoin Feerate Estimation APIs
 date: 2019-06-29 09:09:09 +0100
 author: b10c
 image: /images/2019-07-29/feerate-api.png
