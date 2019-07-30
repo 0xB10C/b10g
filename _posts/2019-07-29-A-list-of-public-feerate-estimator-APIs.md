@@ -8,10 +8,10 @@ comments: true
 hidden: false
 ---
 
-A search for a list of public feerate estimator APIs ended without any real results.
-[Jameson Lopp](https://twitter.com/lopp) has a section on feerate estimators on his [bitcoin.page](https://www.lopp.net/bitcoin-information/fee-estimates.html) and [Antoine Le Calvez's](https://twitter.com/khannib) [p2sh.info](https://p2sh.info/dashboard/db/fee-estimation) dashboard provides a visualisation of different feerate APIs.
-But that isn't what I was looking for.
-Thus I compiled this list and decided to share it. 
+Me searching for a list of public feerate estimator APIs ended without any real results.
+[Jameson Lopp](https://twitter.com/lopp) has a section on feerate estimators on his [bitcoin.page](https://www.lopp.net/bitcoin-information/fee-estimates.html) and [Antoine Le Calvez's](https://twitter.com/khannib) dashboard [p2sh.info](https://p2sh.info/dashboard/db/fee-estimation) provides a visualisation of different estimation APIs.
+But that is not what I was looking for.
+That's why I compiled this list. 
 {: .text-justify}
 
 I opted to only include publicly advertised feerate estimation APIs by e.g. payment processors and block explorers.
@@ -26,8 +26,8 @@ The following list of public feerate APIs is lexicographically sorted.
 ### bitcoiner.live API
 
 The [bitcoiner.live](https://bitcoiner.live/) API provides `sat/vByte` estimates for confirmation in half an hour, 1 hour, 2 hours, 3 hours, 6 hours, 12 hours and 24 hours. 
-It's available via [`https://bitcoiner.live/api/fees/estimates/latest`](https://bitcoiner.live/api/fees/estimates/latest).
-{: .text-justify}
+It's reachable under [`https://bitcoiner.live/api/fees/estimates/latest`](https://bitcoiner.live/api/fees/estimates/latest).
+
 
 {% highlight bash %}
 {
@@ -55,10 +55,8 @@ It's available via [`https://bitcoiner.live/api/fees/estimates/latest`](https://
 ### Bitgo API
 
 
-Bitgo's feerate API is reachable under [`https://www.bitgo.com/api/v2/btc/tx/fee`](https://www.bitgo.com/api/v2/btc/tx/fee).
-The API is documented [here](https://bitgo.com/api/v2/#operation/v2.tx.getfeeestimate).
-It returns estimates for different block targets in **`sat/kB`**.  <small> (*`sat/kB / 1000 = sat/Byte`*) </small>
-{: .text-justify}
+Bitgo's feerate API is reachable under [`https://www.bitgo.com/api/v2/btc/tx/fee`](https://www.bitgo.com/api/v2/btc/tx/fee) and there is documentation available [here](https://bitgo.com/api/v2/#operation/v2.tx.getfeeestimate).
+The API returns estimates for different block targets in **`sat/kB`**.  <small> (*`sat/kB / 1000 = sat/Byte`*) </small>
 
 
 {% highlight bash %}
@@ -82,9 +80,8 @@ It returns estimates for different block targets in **`sat/kB`**.  <small> (*`sa
 ### Bitpay Insight API
 
 The API of Bitpay's Insight instance is available under [`https://insight.bitpay.com/api/utils/estimatefee?nbBlocks=2,4,6`](https://insight.bitpay.com/api/utils/estimatefee?nbBlocks=2,4,6).
-With the parameters `nbBlocks` estimates for a confirmation in the next *`n`* blocks is provided.
+With the parameter `nbBlocks` the confirmation target in the next *`n`* blocks can be specified.
 Feerates are in **`BTC/kB`**. <small>  *(`BTC/kB x 100000 = sat/Byte`)* </small> 
-{: .text-justify}
 
 {% highlight bash %}
 {
@@ -100,8 +97,7 @@ Feerates are in **`BTC/kB`**. <small>  *(`BTC/kB x 100000 = sat/Byte`)* </small>
 
 Blockchain.info recommends **`sat/Byte`** feerates via [`https://api.blockchain.info/mempool/fees`](https://api.blockchain.info/mempool/fees).
 They provide a `regular` and a `priority` feerate.
-Additionally a minimum and maximum feerate are provided.
-{: .text-justify}
+Additionally a `minimum` and `maximum` feerate are included.
 
 {% highlight bash %}
 {
@@ -119,9 +115,9 @@ Additionally a minimum and maximum feerate are provided.
 ### Blockchair API
 
 The Blockchair API offers a transaction fee suggestion in **`sat/Byte`** via [`https://api.blockchair.com/bitcoin/stats`](https://api.blockchair.com/bitcoin/stats).
-While their API is publicly available for occasional requests, they require you to get an API key for periodical requests.
+While their API is publicly available for occasional requests, they require an API key for more and periodical requests.
 You can read more about the API [here](https://github.com/Blockchair/Blockchair.Support/blob/master/API.md).
-{: .text-justify}
+
 
 {% highlight bash %}
 {
@@ -137,9 +133,9 @@ You can read more about the API [here](https://github.com/Blockchair/Blockchair.
 
 ### BlockCypher API
 
-BlockCypher includes a low, medium and high feerate estimate in [`https://api.blockcypher.com/v1/btc/main`](https://api.blockcypher.com/v1/btc/main).
+The BlockCypher API includes a `low`, `medium` and `high` feerate estimate in [`https://api.blockcypher.com/v1/btc/main`](https://api.blockcypher.com/v1/btc/main).
 The feerates are in **`sat/kB`**. <small> (*`sat/kB / 1000 = sat/Byte`*) </small>
-{: .text-justify}
+
 
 {% highlight bash %}
 {
@@ -156,7 +152,7 @@ The feerates are in **`sat/kB`**. <small> (*`sat/kB / 1000 = sat/Byte`*) </small
 ### Blockstream.info API
 
 Blockstream.info offers an API returning feerates for different confirmation targets in **`sat/vByte`** under [`https://blockstream.info/api/fee-estimates`](https://blockstream.info/api/fee-estimates).
-The API is documented under https://github.com/Blockstream/esplora/blob/master/API.md#fee-estimates. 
+The API is documented [here](https://github.com/Blockstream/esplora/blob/master/API.md#fee-estimates). 
 
 {% highlight bash %}
 {
@@ -177,7 +173,7 @@ The API is documented under https://github.com/Blockstream/esplora/blob/master/A
 ### BTC.com API
 
 BTC.com offers a feerate estimate for the next block in **`sat/Byte`** under [`https://btc.com/service/fees/distribution`](https://btc.com/service/fees/distribution).
-{: .text-justify}
+
 
 {% highlight bash %}
 {
@@ -197,8 +193,7 @@ BTC.com offers a feerate estimate for the next block in **`sat/Byte`** under [`h
 ### earn.com API
 
 The API behind [bitcoinfees.earn.com](https://bitcoinfees.earn.com) is reachable under [`https://bitcoinfees.earn.com/api/v1/fees/recommended`](https://bitcoinfees.earn.com/api/v1/fees/recommended).
-Feerate estimates in **`sat/Byte`** for the fastest confirmation, a confirmation in half an hour and a hour are shown.
-{: .text-justify}
+Feerate estimates for the `fastest` confirmation, a confirmation in `half an hour` and `a hour` are shown in **`sat/Byte`**.
 
 {% highlight bash %}
 {
@@ -210,8 +205,8 @@ Feerate estimates in **`sat/Byte`** for the fastest confirmation, a confirmation
 
 <br>
 
-*Please let me know if I forgot a public API.*  
-*Please let me know if this list was of use to you.*
+*Let me know if I forgot a public API.*  
+*Let me know if this list was of use to you.*
 
 <br>
 
