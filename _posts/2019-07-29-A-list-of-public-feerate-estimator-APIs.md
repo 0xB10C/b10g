@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A List of Public Feerate Estimation APIs
+title: A List of Public Bitcoi Feerate Estimation APIs
 date: 2019-06-29 09:09:09 +0100
 author: b10c
 image: /images/2019-07-29/feerate-api.png
@@ -8,7 +8,7 @@ comments: true
 hidden: false
 ---
 
-Me searching for a list of public feerate estimator APIs ended without any real results.
+Me searching for a list of public bitcoin feerate estimation APIs ended without any real results.
 [Jameson Lopp](https://twitter.com/lopp) has a section on feerate estimators on his [bitcoin.page](https://www.lopp.net/bitcoin-information/fee-estimates.html) and [Antoine Le Calvez's](https://twitter.com/khannib) dashboard [p2sh.info](https://p2sh.info/dashboard/db/fee-estimation) provides a visualisation of different estimation APIs.
 But that is not what I was looking for.
 That's why I compiled this list. 
