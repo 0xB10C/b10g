@@ -7,7 +7,7 @@ hidden: true
 image: /images/history-1-nov-08.png
 comments: true
 ---
-http://127.0.0.1:4000/The-incomplete-history-of-Bitcoin-development/
+
 
 To fully understand the rationale behind the current state of Bitcoin development, knowledge about historical events is essential.
 This blog post highlights selected historical events, software releases and bug fixes before and after Satoshi left the project.
