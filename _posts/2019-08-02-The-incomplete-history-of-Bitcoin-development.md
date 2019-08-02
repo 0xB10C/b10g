@@ -1,18 +1,17 @@
 ---
 layout: post
-title: The incomplete history of Bitcoin development
-date: 2019-08-01 09:00:00 +0100
+title: The Incomplete History of Bitcoin Development
+date: 2019-08-02 09:09:09 +0100
 author: b10c
-hidden: true
+hidden: false
 image: /images/history-1-nov-08.png
 comments: true
 ---
 
-
 To fully understand the rationale behind the current state of Bitcoin development, knowledge about historical events is essential.
 This blog post highlights selected historical events, software releases and bug fixes before and after Satoshi left the project.
 It additionally contains a section about the current state of Bitcoin development.
-The attached [timeline](#timeline-bitcoin-history) provides extra detail for each event.
+The attached [timeline](#timeline-bitcoin-history) provides extra detail for each historical event.
 {: .text-justify}
 
 I wasn't following the Bitcoin space when a majority of these events happened.
@@ -32,12 +31,12 @@ A system only controlled by the software which its users run.
 {: .text-justify}
 
 Early on contributors join Satoshi working on Bitcoin.
-These new contributors add support for [Linux](#2009-release-0-2-0) and [macOS](#2010-release-0-3-0) next to many other contributions to the project.
+These new contributors add, next to many other things, support for [Linux](#2009-release-0-2-0) and [macOS](#2010-release-0-3-0) to the project.
 Over the summer of 2010 Satoshi authors a few critical software changes.
 For example, [checkpoints](#2010-release-0-3-2) are introduced as a safeguard against malicious peers broadcasting low difficulty chains.
-A node enforcing these checkpoints rejects chains which do not include specific block hashs at specific heights.
+A node enforcing these checkpoints rejects chains which don't include specific block hashs at specific heights.
 Checkpoints are hard-coded by Satoshi alone.
-In theory, allowing Satoshi to control which chain the whole network follows.
+In theory, allowing Satoshi to control which chain the network follows.
 {: .text-justify}
 
 A few days after adding checkpoints Satoshi releases the first consensus change in [version v0.3.3](#2010-release-0-3-3).
@@ -96,31 +95,31 @@ The year 2019 brings a new company, [Square Crypto](#2019-company-squarecrypto),
 ## Current state of Bitcoin development
 
 Over the years the development culture became more decentralized, well-defined and rigorous.
-There are [six Bitcoin Core maintainers](https://bitcointalk.org/index.php?topic=1774750.0), distributed over three continents, with the ability to merge commits into Bitcoin Core.
-Maintainers merge commits by Bitcoin Core contributors.
+There are [six Bitcoin Core maintainers](https://bitcointalk.org/index.php?topic=1774750.0), distributed over three continents.
+Only they can to merge commits by contributors into Bitcoin Core.
 Before commits get merged they have to go through a [review process](https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review), which has gotten a lot stricter.
 {: .text-justify}
 
 For example, a competing proposal, to the earlier mentioned P2SH, was [`OP_EVAL`](#2011-other-p2sh).
 The [pull request](https://github.com/bitcoin/bitcoin/pull/669) implementing `OP_EVAL` was merged at the end of 2011 with only one reviewer, albeit it changing consensus-critical code.
-Later Russell O’Connor opened an [issue](https://github.com/bitcoin/bitcoin/issues/729) criticizing parts of the implementation and that such a big and consensus-critical should have had a lot more review and testing.
+Russell O’Connor opened an [issue](https://github.com/bitcoin/bitcoin/issues/729) criticizing parts of the implementation and that such a big and consensus-critical should have had a lot more review and testing.
 {: .text-justify}
 
 This fueled an ongoing discussion on how to ensure higher code quality through more testing and review.
 Today each pull request should at least be reviewed by multiple developers.
 If a change touches security-critical or even consensus-critical code, the review process needs many reviewers, a lot of testing and usually spans over multiple months.
-[John Newbery](), an active Bitcoin Core contributor, told me that there is _"no chance a consensus change would be merged with a single reviewer today"_.
+[John Newbery](), an active Bitcoin Core contributor, said that there is _"no chance a consensus change would be merged with a single reviewer today"_.
 {: .text-justify}
 
 A lot of work went into automated testing.
 There are [unit-tests](https://github.com/bitcoin/bitcoin/blob/master/src/test/README.md) written in C++ and [functional-test](https://github.com/bitcoin/bitcoin/blob/master/test/functional/README.md) written in Python.
 Every non-trivial change should update existing tests or add new ones to the frameworks.
 Next to unit- and functional-tests, there is an initiative to do [fuzz-testing](https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md) on Bitcoin Core and a [benchmarking framework](https://github.com/bitcoin/bitcoin/blob/master/doc/benchmarking.md) to monitor code performance.
-For example the website bitcoinperf.com offers both a [Grafana]((https://bitcoinperf.com/d/YiV16Vsik/overview)) and a [codespeed](https://codespeed.bitcoinperf.com/) interface visualizing benchmarking results.
+The website bitcoinperf.com for example offers both a [Grafana]((https://bitcoinperf.com/d/YiV16Vsik/overview)) and a [codespeed](https://codespeed.bitcoinperf.com/) interface visualizing periodic benchmarking results.
 {: .text-justify}
 
 A well-defined [release process](https://github.com/bitcoin/bitcoin/blob/master/doc/release-process.md) has been put together over the years.
-Major releases of Bitcoin Core are scheduled to be released every six months.
+Major releases of Bitcoin Core are scheduled every six months.
 The [schedule](https://github.com/bitcoin/bitcoin/issues/15940) includes a [translation process](https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md), a feature freeze and usually multiple release candidates.
 Recent efforts by [Carl Dong](https://twitter.com/carl_dong) aim to increase the [Bitcoin Core build system security](https://www.youtube.com/watch?v=I2iShmUTEl8) with [deterministic and bootstrappable](https://github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md) builds.
 The new build system might not be fully ready for the v0.19.0 release of Bitcoin Core this fall, but it will most definitely be used in the future.
@@ -139,7 +138,9 @@ There is a timeline with more events attached below. Some further reading could 
 
 
 ## Acknowledgements
-I am very thankful for John Newbery, who reviewed and helped me shape this blog post. He did a lot of the historical digging for his [History and Philosophy of Bitcoin Development](https://www.meetup.com/BitDevsNYC/events/262321510/) talk, which this blog post is based upon. I'm grateful for [Chaincode Labs](https://chaincode.com) inviting me to their 2019 Summer Residency where I met a lot of awesome people, learned a lot and started to work on this post.
+I am very thankful for John Newbery helping me to shape and review this blog post.
+He did a lot of the historical digging for his [History and Philosophy of Bitcoin Development](https://www.meetup.com/BitDevsNYC/events/262321510/) talk, which this blog post is based upon.
+I'm also very grateful for [Chaincode Labs](https://chaincode.com) inviting me to their 2019 Summer Residency where I met a lot of awesome people, learned a lot and started working on this post.
 {: .text-justify}
 
 
