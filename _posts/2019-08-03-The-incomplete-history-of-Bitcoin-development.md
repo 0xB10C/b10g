@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Incomplete History of Bitcoin Development
-date: 2019-08-02 09:09:09 +0100
+date: 2019-08-03 09:09:09 +0100
 author: b10c
 hidden: false
 image: /images/history-1-nov-08.png
@@ -47,7 +47,7 @@ This bug was exploited to create two high-value UTXOs.
 Satoshi advises miners to reorg the chain containing the blocks with the malicious transactions.
 {: .text-justify}
 
-A week later Satoshi introduces an [alert system](#2010-post-alert-system) to inform node operators about problems in the network.
+A week later Satoshi introduces an [alert system](#2010-post-alert-system) to inform node operators about similiar bugs and problems in the network.
 The alert system includes a safe mode.
 The safe mode, once triggered, disables all money handling RPC methods in the entire network.
 Only Satoshi can create valid network alerts by signing them with a private key.
@@ -56,7 +56,7 @@ Some users raise the question of what could happen when a second party, for exam
 
 Satoshi has a lot of power over the Bitcoin network at this point.
 The main concern here isn't that Satoshi could turn evil on the network and try to destroy it.
-The main concern is that there shouldn't be a single point of failure in a decentralized system.
+The main concern is that there shouldn't be such a single point of failure in a decentralized system.
 {: .text-justify}
 
 In December 2010 Satoshi opens his [last thread](#2010-post-final) on bitcointalk announcing the removal of the safe mode.
@@ -70,45 +70,48 @@ Some might argue Satoshi stepping away from Bitcoin is one of his greatest contr
 
 Around the same time, the [development process](#2010-other-moved-to-github) moves from SVN to GitHub, which leads to longtime [contributors](#2011-other-new-contributors) like TheBlueMatt, sipa, laanwj and gmaxwell joining the project.
 In mid-2011 the [BIP process](#2011-other-first-bip) for Bitcoin Improvement Proposals is introduced.
-In the last quarter of 2011 and the first of 2012 the community discusses [various proposals](#2011-other-p2sh) that allow the receiver of a transaction to specify the script needed to spend it.
+In the last quarter of 2011 and the first of 2012 the community discusses [various proposals](#2011-other-p2sh), which would allow the receiver of a transaction to specify the script needed to spend it.
 Out of them, P2SH is merged.
 {: .text-justify}
 
 In fall 2012 the [Bitcoin Foundation](#2012-other-bitcoin-foundation) is announced.
 The Bitcoin Foundation hopes to achieve for Bitcoin what the Linux Foundation does for Linux.
 Some people raise the fear of development centralization in the announcement thread.
+{: .text-justify}
+
 Bitcoin version [v0.8.0 is released](#2013-release-0-8-0) in spring 2013.
 Two weeks after the release an [unexpected hardfork](#2013-bug-hardfork) splits the network in nodes that have and haven't yet upgraded.
 The hardfork is resolved fairly quick.
 Different miners react by shifting their hashpower to the chain valid for both upgraded and not upgraded nodes.
 {: .text-justify}
 
-In late 2013 the Bitcoin Software is [rebranded to Bitcoin Core](#2013-other-rebranding-to-core).
+In late 2013 the Bitcoin software is [rebranded to Bitcoin Core](#2013-other-rebranding-to-core).
 In the following year companies such as [Chaincode](#2014-company-chaincode) and [Blockstream](#2014-company-blockstream) are founded.
 Later the [MIT Digital Currency Initiative](#2015-other-mit-dci) joins Chaincode and Blockstream by paying developers and researchers to work on Bitcoin.
 In February 2015 Joseph Poon and Tadge Dryja release the first draft of the [Lightning Whitepaper](#2015-other-lightning-whitepaper).
 The next year Luke Dashjr revises the BIP process with [BIP 2](#2016-other-bip-2) and the Bitcoin Core release v0.13.0 includes [SegWit](#2016-release-0-13-1) as a softfork.
-At the beginning of November 2016 the [alert system](#2016-other-alert-system-retired) is retired and in August 2017 [SegWit](#2017-other-segwit-activated) gets activated.
+In November 2016 the [alert system](#2016-other-alert-system-retired) is retired and in August 2017 [SegWit](#2017-other-segwit-activated) gets activated.
 The year 2019 brings a new company, [Square Crypto](#2019-company-squarecrypto), sponsoring Bitcoin development and the [taproot proposal](#2019-post-taproot) by Pieter Wuille.
 {: .text-justify}
 
 ## Current state of Bitcoin development
 
-Over the years the development culture became more decentralized, well-defined and rigorous.
-There are [six Bitcoin Core maintainers](https://bitcointalk.org/index.php?topic=1774750.0), distributed over three continents.
-Only they can to merge commits by contributors into Bitcoin Core.
-Before commits get merged they have to go through a [review process](https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review), which has gotten a lot stricter.
+Over the years the Bitcoin development culture became more decentralized, well-defined and rigorous.
+There are currently [six Bitcoin Core maintainers](https://bitcointalk.org/index.php?topic=1774750.0), distributed over three continents.
+Only they can to merge commits by contributors.
+Before commits get merged however, they have to go through a [review process](https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review), which has gotten a lot stricter.
 {: .text-justify}
 
 For example, a competing proposal, to the earlier mentioned P2SH, was [`OP_EVAL`](#2011-other-p2sh).
-The [pull request](https://github.com/bitcoin/bitcoin/pull/669) implementing `OP_EVAL` was merged at the end of 2011 with only one reviewer, albeit it changing consensus-critical code.
-Russell O’Connor opened an [issue](https://github.com/bitcoin/bitcoin/issues/729) criticizing parts of the implementation and that such a big and consensus-critical should have had a lot more review and testing.
+The [pull request](https://github.com/bitcoin/bitcoin/pull/669) implementing `OP_EVAL` was merged at the end of 2011.
+It had only one reviewer, albeit changing consensus-critical code.
+Russell O’Connor opened an [issue](https://github.com/bitcoin/bitcoin/issues/729) criticizing parts of the implementation and that such a big and consensus-critical change should have had a lot more review and testing.
 {: .text-justify}
 
 This fueled an ongoing discussion on how to ensure higher code quality through more testing and review.
 Today each pull request should at least be reviewed by multiple developers.
 If a change touches security-critical or even consensus-critical code, the review process needs many reviewers, a lot of testing and usually spans over multiple months.
-[John Newbery](), an active Bitcoin Core contributor, said that there is _"no chance a consensus change would be merged with a single reviewer today"_.
+John Newbery, an active Bitcoin Core contributor, told me that there is _"no chance a consensus change would be merged with a single reviewer today"_.
 {: .text-justify}
 
 A lot of work went into automated testing.
@@ -130,10 +133,11 @@ The new build system might not be fully ready for the v0.19.0 release of Bitcoin
 Over the past ten years, the Bitcoin development culture has changed a lot.
 Moving from being very centralized around Satoshi to being more decentralized with more than a [thousand GitHub contributors in 2018](https://twitter.com/_jonasschnelli_/status/1080713877355081729).
 It has gotten clear that very high standards for code review, code quality, and security are needed.
+These standards are followed and constantly improved.
 {: .text-justify}
 
 I think to fully understand the rationale behind the current state of Bitcoin development, knowledge about historical events is essential.
-There is a timeline with more events attached below. Some further reading could be [The Tao Of Bitcoin Development](https://medium.com/@bergealex4/the-tao-of-bitcoin-development-ff093c6155cd) written by [Alex B.](https://twitter.com/bergealex4), [The Bitcoin Core Merge Process](https://medium.com/@elombrozo/the-bitcoin-core-merge-process-74687a09d81d) written by [Eric Lombrozo](https://twitter.com/eric_lombrozo) or [Who Controls Bitcoin Core?](https://blog.lopp.net/who-controls-bitcoin-core-/) written by [Jameson Lopp](https://twitter.com/lopp).
+There is a timeline with more events attached below. Some further reading could be [The Tao Of Bitcoin Development](https://medium.com/@bergealex4/the-tao-of-bitcoin-development-ff093c6155cd) written by [Alex B.](https://twitter.com/bergealex4), [The Bitcoin Core Merge Process](https://medium.com/@elombrozo/the-bitcoin-core-merge-process-74687a09d81d) written by [Eric Lombrozo](https://twitter.com/eric_lombrozo) or the blog post by [Jameson Lopp](https://twitter.com/lopp): [Who Controls Bitcoin Core?](https://blog.lopp.net/who-controls-bitcoin-core-/)
 {: .text-justify}
 
 
