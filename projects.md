@@ -54,7 +54,7 @@ I think to fully understand the rationale behind the current state of Bitcoin de
 So I created an open source project containing the data for a timeline of historical of developments in Bitcoin.
 Most data points are adopted from a talk [John Newbery](https://twitter.com/jfnewbery) gave on the [History and Philosophy of Bitcoin Development](https://www.meetup.com/BitDevsNYC/events/262321510/). 
 I've used this timeline in my blog post [The Incomplete History of Bitcoin Development](https://b10c.me/The-incomplete-history-of-Bitcoin-development/).
-There is also a sample 
+{: .text-justify}
 
 - [Timeline on GitHub](https://github.com/0xB10C/bitcoin-development-history)
 - [Blog Post: The Incomplete History of Bitcoin Development](https://b10c.me/The-incomplete-history-of-Bitcoin-development/)
