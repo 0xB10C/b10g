@@ -4,7 +4,7 @@ title: The Incomplete History of Bitcoin Development
 date: 2019-08-03 09:09:09 +0100
 author: b10c
 hidden: false
-image: /images/history-1-nov-08.png
+image: /images/2019-08-03/history-1-nov-08.png
 comments: true
 ---
 
