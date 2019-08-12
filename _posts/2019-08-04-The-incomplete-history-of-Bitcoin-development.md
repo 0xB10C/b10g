@@ -124,7 +124,7 @@ A well-defined [release process](https://github.com/bitcoin/bitcoin/blob/master/
 Major releases of Bitcoin Core are scheduled every six months.
 The [schedule](https://github.com/bitcoin/bitcoin/issues/15940) includes a [translation process](https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md), a feature freeze and usually multiple release candidates.
 Recent efforts by [Cory Fields](https://github.com/theuni) and [Carl Dong](https://twitter.com/carl_dong) aim to increase the [Bitcoin Core build system security](https://www.youtube.com/watch?v=I2iShmUTEl8) with [deterministic and bootstrappable](https://github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md) builds.
-The new build system might not be fully ready for the v0.19.0 release of Bitcoin Core this fall, but might provide greater build security in the future.
+The new build system might not be fully ready for the v0.19.0 release of Bitcoin Core this fall, but could provide greater build security in the future.
 {: .text-justify}
 
 ## Conclusion
