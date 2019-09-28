@@ -48,6 +48,20 @@ In addition to that [transactionfee.info](https://transactionfee.info) has been 
 
 ---
 
+<p align="center">
+  <a href="https://transactionfee.info"><img width="500px" src="/images/projects/rawtx.png" alt="rawtx logo"></a>
+</p>
+
+
+rawtx is a Golang module that helps you (and me) answer questions about raw Bitcoin transactions, their inputs, outputs and scripts.
+I use rawtx for example in mempool.observer.
+
+- [rawtx on GitHub](https://github.com/0xB10C/rawtx/tree/master)
+- [Documentation on GoDoc](https://godoc.org/github.com/0xB10C/rawtx)
+
+
+---
+
 ## Timeline of the Bitcoin development history
 
 To fully understand the rationale behind the current state of Bitcoin development, knowledge about historical events is essential.
