@@ -1,11 +1,9 @@
 ---
 layout: post
 title: Frequently Asked Questions&#58; Bitcoin Transaction Monitor
-date: 2019-10-04 09:09:09 +0100
+date: 2019-10-10 09:09:09 +0100
 author: b10c
 image: /images/2019-10-10/twitter-card.png
-hidden: true
-comments: true
 ---
 
 The [Bitcoin Transaction Monitor](https://mempool.observer/monitor) provides deeper insights about the usage of the Bitcoin network by showing transactions by time and feerate.

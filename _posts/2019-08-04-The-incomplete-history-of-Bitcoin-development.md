@@ -97,7 +97,7 @@ In May Pieter Wuille proposes [BIP taproot](#2019-post-taproot).
 
 Over the years the Bitcoin development culture became more decentralized, well-defined and rigorous.
 There are currently [six Bitcoin Core maintainers](https://bitcointalk.org/index.php?topic=1774750.0), distributed over three continents.
-Only they can to merge commits by contributors.
+Only they can merge commits by contributors.
 Before commits get merged, however, they have to go through a [review process](https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md#peer-review), which has gotten a lot stricter.
 {: .text-justify}
 
@@ -117,7 +117,7 @@ A lot of work went into automated testing.
 There are [unit-tests](https://github.com/bitcoin/bitcoin/blob/master/src/test/README.md) written in C++ and [functional-test](https://github.com/bitcoin/bitcoin/blob/master/test/functional/README.md) written in Python.
 Every non-trivial change should update existing tests or add new ones to the frameworks.
 Next to unit- and functional-tests, there is an initiative to do [fuzz-testing](https://github.com/bitcoin/bitcoin/blob/master/doc/fuzzing.md) on Bitcoin Core and a [benchmarking framework](https://github.com/bitcoin/bitcoin/blob/master/doc/benchmarking.md) to monitor code performance.
-The website bitcoinperf.com, for example, offers both a [Grafana]((https://bitcoinperf.com/d/YiV16Vsik/overview)) and a [codespeed](https://codespeed.bitcoinperf.com/) interface visualizing periodic benchmarking results.
+The website [bitcoinperf.com](https://bitcoinperf.com), for example, offers both a [Grafana](https://bitcoinperf.com/d/YiV16Vsik/overview) and a [codespeed](https://codespeed.bitcoinperf.com/) interface visualizing periodic benchmarking results.
 {: .text-justify}
 
 A well-defined [release process](https://github.com/bitcoin/bitcoin/blob/master/doc/release-process.md) has been put together over the years.
