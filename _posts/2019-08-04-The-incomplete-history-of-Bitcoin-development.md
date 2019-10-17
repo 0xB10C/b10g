@@ -149,7 +149,7 @@ I'm also very grateful for [Chaincode Labs](https://chaincode.com) inviting me t
 
 
 <br>
-*There is a [comment section](#comments) at the very bottom of this page, but make sure to check out the timeline first.* 
+
 <hr style="border-top: 0px solid #ffffff0f;">
 
 ## Timeline of historical events in Bitcoin development 
@@ -393,4 +393,3 @@ If you have a suggestion about something missing or want to propose a change, pl
   }
 
 </style>
-
